@@ -85,5 +85,49 @@ namespace Mini_Programms
         {
             Clipboard.SetText(tbRand1.Text);
         }
+
+        private void tsmiInsertDate_Click(object sender, EventArgs e)
+        {
+            rtbNote.AppendText(DateTime.Now.ToShortDateString());
+        }
+
+        private void tsmiInsertTime_Click(object sender, EventArgs e)
+        {
+            rtbNote.AppendText(DateTime.Now.ToShortTimeString());
+        }
+
+        private void tsmiSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                rtbNote.SaveFile("notepad.rtf");
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка при сохранении");
+            }
+        }
+
+        void LoadNotepad()
+        {
+            try
+            {
+                rtbNote.LoadFile("notepad.rtf");
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка при открытии файла");
+            }
+        }
+
+        private void tsmiOpen_Click(object sender, EventArgs e)
+        {
+            LoadNotepad();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            LoadNotepad();
+        }
     }
 }

@@ -52,12 +52,21 @@
             this.btnPlus = new System.Windows.Forms.Button();
             this.btnRandCopy = new System.Windows.Forms.Button();
             this.chbUniq = new System.Windows.Forms.CheckBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.rtbNote = new System.Windows.Forms.RichTextBox();
+            this.блокнотToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiInsertDate = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiInsertTime = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudFrom)).BeginInit();
             this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -69,6 +78,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
+            this.блокнотToolStripMenuItem,
             this.помощьToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -110,6 +120,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
@@ -296,6 +307,76 @@
             this.chbUniq.Text = "Уникальные";
             this.chbUniq.UseVisualStyleBackColor = true;
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.rtbNote);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(792, 400);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Блокнот";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // rtbNote
+            // 
+            this.rtbNote.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbNote.Location = new System.Drawing.Point(0, 0);
+            this.rtbNote.Name = "rtbNote";
+            this.rtbNote.Size = new System.Drawing.Size(792, 400);
+            this.rtbNote.TabIndex = 0;
+            this.rtbNote.Text = "";
+            // 
+            // блокнотToolStripMenuItem
+            // 
+            this.блокнотToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiInsertDate,
+            this.tsmiInsertTime,
+            this.toolStripMenuItem1,
+            this.tsmiSave,
+            this.tsmiOpen});
+            this.блокнотToolStripMenuItem.Name = "блокнотToolStripMenuItem";
+            this.блокнотToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.блокнотToolStripMenuItem.Text = "Блокнот";
+            // 
+            // tsmiInsertDate
+            // 
+            this.tsmiInsertDate.Name = "tsmiInsertDate";
+            this.tsmiInsertDate.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.D)));
+            this.tsmiInsertDate.Size = new System.Drawing.Size(232, 22);
+            this.tsmiInsertDate.Text = "Вставить Дату";
+            this.tsmiInsertDate.Click += new System.EventHandler(this.tsmiInsertDate_Click);
+            // 
+            // tsmiInsertTime
+            // 
+            this.tsmiInsertTime.Name = "tsmiInsertTime";
+            this.tsmiInsertTime.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.T)));
+            this.tsmiInsertTime.Size = new System.Drawing.Size(232, 22);
+            this.tsmiInsertTime.Text = "Вставить Время";
+            this.tsmiInsertTime.Click += new System.EventHandler(this.tsmiInsertTime_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(229, 6);
+            // 
+            // tsmiSave
+            // 
+            this.tsmiSave.Name = "tsmiSave";
+            this.tsmiSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.tsmiSave.Size = new System.Drawing.Size(232, 22);
+            this.tsmiSave.Text = "Сохранить";
+            this.tsmiSave.Click += new System.EventHandler(this.tsmiSave_Click);
+            // 
+            // tsmiOpen
+            // 
+            this.tsmiOpen.Name = "tsmiOpen";
+            this.tsmiOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.tsmiOpen.Size = new System.Drawing.Size(232, 22);
+            this.tsmiOpen.Text = "Открыть";
+            this.tsmiOpen.Click += new System.EventHandler(this.tsmiOpen_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,6 +387,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "MiniProgramms";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -315,6 +397,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudFrom)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -345,6 +428,14 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnRandCopy;
         private System.Windows.Forms.CheckBox chbUniq;
+        private System.Windows.Forms.ToolStripMenuItem блокнотToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiInsertDate;
+        private System.Windows.Forms.ToolStripMenuItem tsmiInsertTime;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.RichTextBox rtbNote;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem tsmiSave;
+        private System.Windows.Forms.ToolStripMenuItem tsmiOpen;
     }
 }
 

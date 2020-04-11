@@ -14,10 +14,12 @@ namespace Mini_Programms
     {
 
         int count = 0;
+        Random rnd;
 
         public MainForm()
         {
             InitializeComponent();
+            rnd = new Random();
         }
 
         private void tsmiExit_Click(object sender, EventArgs e)
@@ -46,6 +48,17 @@ namespace Mini_Programms
         {
             count = 0;
             lblCounter.Text = count.ToString();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int n = rnd.Next(Convert.ToInt32(nudFrom.Value), Convert.ToInt32(nudTo.Value) + 1);
+            lblRandom.Text = n.ToString();
         }
     }
 }

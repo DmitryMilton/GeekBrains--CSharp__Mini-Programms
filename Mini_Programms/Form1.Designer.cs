@@ -72,6 +72,8 @@
             this.btnConvert = new System.Windows.Forms.Button();
             this.tbFrom = new System.Windows.Forms.TextBox();
             this.tbTo = new System.Windows.Forms.TextBox();
+            this.btnSwap = new System.Windows.Forms.Button();
+            this.cbMetric = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -472,6 +474,8 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.cbMetric);
+            this.tabPage5.Controls.Add(this.btnSwap);
             this.tabPage5.Controls.Add(this.tbTo);
             this.tabPage5.Controls.Add(this.tbFrom);
             this.tabPage5.Controls.Add(this.btnConvert);
@@ -494,9 +498,9 @@
             "m",
             "km",
             "mile"});
-            this.cbFrom.Location = new System.Drawing.Point(101, 24);
+            this.cbFrom.Location = new System.Drawing.Point(32, 94);
             this.cbFrom.Name = "cbFrom";
-            this.cbFrom.Size = new System.Drawing.Size(61, 21);
+            this.cbFrom.Size = new System.Drawing.Size(70, 21);
             this.cbFrom.TabIndex = 0;
             this.cbFrom.Text = "mm";
             // 
@@ -510,17 +514,17 @@
             "m",
             "km",
             "mile"});
-            this.cbTo.Location = new System.Drawing.Point(101, 79);
+            this.cbTo.Location = new System.Drawing.Point(217, 94);
             this.cbTo.Name = "cbTo";
-            this.cbTo.Size = new System.Drawing.Size(61, 21);
+            this.cbTo.Size = new System.Drawing.Size(70, 21);
             this.cbTo.TabIndex = 1;
             this.cbTo.Text = "mm";
             // 
             // btnConvert
             // 
-            this.btnConvert.Location = new System.Drawing.Point(25, 50);
+            this.btnConvert.Location = new System.Drawing.Point(108, 65);
             this.btnConvert.Name = "btnConvert";
-            this.btnConvert.Size = new System.Drawing.Size(137, 23);
+            this.btnConvert.Size = new System.Drawing.Size(103, 23);
             this.btnConvert.TabIndex = 2;
             this.btnConvert.Text = "Конвертировать";
             this.btnConvert.UseVisualStyleBackColor = true;
@@ -528,7 +532,7 @@
             // 
             // tbFrom
             // 
-            this.tbFrom.Location = new System.Drawing.Point(25, 24);
+            this.tbFrom.Location = new System.Drawing.Point(32, 66);
             this.tbFrom.Name = "tbFrom";
             this.tbFrom.Size = new System.Drawing.Size(70, 20);
             this.tbFrom.TabIndex = 3;
@@ -536,11 +540,34 @@
             // 
             // tbTo
             // 
-            this.tbTo.Location = new System.Drawing.Point(25, 80);
+            this.tbTo.Location = new System.Drawing.Point(217, 66);
             this.tbTo.Name = "tbTo";
             this.tbTo.ReadOnly = true;
             this.tbTo.Size = new System.Drawing.Size(70, 20);
             this.tbTo.TabIndex = 4;
+            // 
+            // btnSwap
+            // 
+            this.btnSwap.Location = new System.Drawing.Point(108, 94);
+            this.btnSwap.Name = "btnSwap";
+            this.btnSwap.Size = new System.Drawing.Size(103, 23);
+            this.btnSwap.TabIndex = 5;
+            this.btnSwap.Text = "< - >";
+            this.btnSwap.UseVisualStyleBackColor = true;
+            this.btnSwap.Click += new System.EventHandler(this.btnSwap_Click);
+            // 
+            // cbMetric
+            // 
+            this.cbMetric.FormattingEnabled = true;
+            this.cbMetric.Items.AddRange(new object[] {
+            "длина",
+            "вес"});
+            this.cbMetric.Location = new System.Drawing.Point(108, 38);
+            this.cbMetric.Name = "cbMetric";
+            this.cbMetric.Size = new System.Drawing.Size(103, 21);
+            this.cbMetric.TabIndex = 6;
+            this.cbMetric.Text = "Длина";
+            this.cbMetric.SelectedIndexChanged += new System.EventHandler(this.cbMetric_SelectedIndexChanged);
             // 
             // MainForm
             // 
@@ -618,6 +645,8 @@
         private System.Windows.Forms.Button btnConvert;
         private System.Windows.Forms.ComboBox cbTo;
         private System.Windows.Forms.ComboBox cbFrom;
+        private System.Windows.Forms.Button btnSwap;
+        private System.Windows.Forms.ComboBox cbMetric;
     }
 }
 

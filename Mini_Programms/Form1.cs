@@ -180,5 +180,66 @@ namespace Mini_Programms
             double n = Convert.ToDouble(tbFrom.Text);
             tbTo.Text = (n * m1 / m2).ToString();
         }
+
+        private void btnSwap_Click(object sender, EventArgs e)
+        {
+            string t = cbFrom.Text;
+            cbFrom.Text = cbTo.Text;
+            cbTo.Text = t;
+        }
+
+        private void cbMetric_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbMetric.Text)
+            {
+                case "длина":
+                    metrica.Clear();
+                    metrica.Add("mm", 1);
+                    metrica.Add("sm", 10);
+                    metrica.Add("dm", 100);
+                    metrica.Add("m", 1000);
+                    metrica.Add("km", 1000000);
+                    metrica.Add("mile", 1609344);
+                    cbFrom.Items.Clear();
+                    cbFrom.Items.Add("mm");
+                    cbFrom.Items.Add("sm");
+                    cbFrom.Items.Add("dm");
+                    cbFrom.Items.Add("m");
+                    cbFrom.Items.Add("km");
+                    cbFrom.Items.Add("mile");
+                    cbTo.Items.Clear();
+                    cbTo.Items.Add("mm");
+                    cbTo.Items.Add("sm");
+                    cbTo.Items.Add("dm");
+                    cbTo.Items.Add("m");
+                    cbTo.Items.Add("km");
+                    cbTo.Items.Add("mile");
+                    cbFrom.Text = "mm";
+                    cbTo.Text = "mm";
+                    break;
+                case "вес":
+                    metrica.Clear();
+                    metrica.Add("g", 1);
+                    metrica.Add("kg", 1000);
+                    metrica.Add("t", 1000000);
+                    metrica.Add("lb", 453.6);
+                    metrica.Add("oz", 283);
+                    cbFrom.Items.Clear();
+                    cbFrom.Items.Add("g");
+                    cbFrom.Items.Add("kg");
+                    cbFrom.Items.Add("t");
+                    cbFrom.Items.Add("lb");
+                    cbFrom.Items.Add("oz");
+                    cbTo.Items.Clear();
+                    cbTo.Items.Add("g");
+                    cbTo.Items.Add("kg");
+                    cbTo.Items.Add("t");
+                    cbTo.Items.Add("lb");
+                    cbTo.Items.Add("oz");
+                    cbFrom.Text = "g";
+                    cbTo.Text = "g";
+                    break;
+            }
+        }
     }
 }

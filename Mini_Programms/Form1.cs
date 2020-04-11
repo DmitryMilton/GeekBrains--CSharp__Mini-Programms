@@ -59,6 +59,31 @@ namespace Mini_Programms
         {
             int n = rnd.Next(Convert.ToInt32(nudFrom.Value), Convert.ToInt32(nudTo.Value) + 1);
             lblRandom.Text = n.ToString();
+            if (chbUniq.Checked)
+            {
+                if (tbRand1.Lines.Count() < Convert.ToInt32(nudTo.Value)+1)
+                {
+                    while (tbRand1.Text.IndexOf(n.ToString()) != -1)
+                    {
+                        n = rnd.Next(Convert.ToInt32(nudFrom.Value), Convert.ToInt32(nudTo.Value) + 1);
+                    }
+                    tbRand1.AppendText(n + Environment.NewLine);
+                }
+            }
+            else
+            {
+                tbRand1.AppendText(n + Environment.NewLine);
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            tbRand1.Clear();
+        }
+
+        private void btnRandCopy_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(tbRand1.Text);
         }
     }
 }

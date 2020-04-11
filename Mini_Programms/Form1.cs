@@ -15,6 +15,7 @@ namespace Mini_Programms
 
         int count = 0;
         Random rnd;
+        string specChars = "!@#$%^&*()-=<>?{}[]~";
 
         public MainForm()
         {
@@ -128,6 +129,40 @@ namespace Mini_Programms
         private void MainForm_Load(object sender, EventArgs e)
         {
             LoadNotepad();
+            chlbPassw.SetItemChecked(0, true);
+            chlbPassw.SetItemChecked(1, true);
+            chlbPassw.SetItemChecked(2, true);
+        }
+
+        private void btnCreatePassw_Click(object sender, EventArgs e)
+        {
+            if (chlbPassw.CheckedItems.Count == 0) return;
+            string password = "";
+            for (int i = 0; i < nudPassLen.Value; i++)
+            {
+                int n = rnd.Next(0, chlbPassw.CheckedItems.Count);
+                string s = chlbPassw.CheckedItems[n].ToString();
+                switch (s)
+                {
+                    case "Цифры":
+                        password += rnd.Next(10).ToString();
+                        break;
+                    
+                    case "Прописные буквы":
+                        password += Convert.ToChar(rnd.Next(65, 88));
+                        break;
+                    
+                    case "Строчные буквы":
+                        password += Convert.ToChar(rnd.Next(97, 122));
+                        break;
+                    
+                    default:
+                        password += specChars[rnd.Next(specChars.Length)];
+                        break;
+                }
+                tbPassw.Text = password;
+                Clipboard.SetText(password);
+            }
         }
     }
 }
